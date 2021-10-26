@@ -11,7 +11,8 @@ body {
     width: 100vw;
     background: linear-gradient(135deg, #1a70b8, #0b3453);
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -66,4 +67,9 @@ body {
 .display .current-number {
     color: rgba(255, 255, 255, 1);
     font-size: 2.5rem;
+}
+
+.footer {
+    color:rgba(255, 255, 255, 0.5);
+    text-align: center;
 }

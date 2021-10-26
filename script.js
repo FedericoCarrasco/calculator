@@ -99,7 +99,7 @@ class Calculator {
 const numberButtons = document.querySelectorAll('[data-number]')
 const operationButtons = document.querySelectorAll('[data-operation]')
 const equalsButton = document.querySelector('[data-equals]')
-const cancelButton = document.querySelector('[data-cancel]')
+const deleteButton = document.querySelector('[data-delete]')
 const allClearButton = document.querySelector('[data-all-clear]')
 const previousNumberTextElement = document.querySelector('[data-previous-number]')
 const currentNumberTextElement = document.querySelector('[data-current-number]')
@@ -135,7 +135,7 @@ allClearButton.addEventListener('click', button => {
     calculator.updateDisplay()
 })
 
-cancelButton.addEventListener('click', button => {
+deleteButton.addEventListener('click', button => {
     calculator.delete()
     calculator.updateDisplay()
 })
@@ -145,7 +145,7 @@ changeSignButton.addEventListener('click', button => {
     calculator.updateDisplay()
 })
 
-const keyboardButtons = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '.', '+', '-', '*', '/', '=', 'Enter', 'c', 'd', 's']
+const keyboardButtons = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '.', '+', '-', '*', '/', '=', 'Enter', 'c', 'd', 's', 'C', 'D', 'S']
 
 window.addEventListener('keydown', e => {
     const key = e.key
@@ -207,10 +207,19 @@ window.addEventListener('keydown', e => {
             case 'c':
                 calculator.clear()
                 break
+            case 'C':
+                calculator.clear()
+                break
             case 'd':
                 calculator.delete()
                 break
+            case 'D':
+                calculator.delete()
+                break
             case 's':
+                calculator.changeSign()
+                break
+            case 'S':
                 calculator.changeSign()
                 break
             default:
