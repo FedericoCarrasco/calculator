@@ -73,3 +73,9 @@ body {
     color:rgba(255, 255, 255, 0.5);
     text-align: center;
 }
+
+@media (max-device-width: 820px) {
+    .footer {
+        font-size: 0;
+    }
+}
