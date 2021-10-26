@@ -16,7 +16,16 @@ class Calculator {
 
     writeNumber(number) {
         if (number === '.' && this.currentNumber.includes('.')) return
+        else if (number === '.' && this.currentNumber === '') {
+            this.currentNumber = '0'
+        }
         this.currentNumber = this.currentNumber.toString() + number.toString()
+    }
+
+    changeSign() {
+        if (this.currentNumber === '' || this.currentNumber === '0.') return
+        this.currentNumber = this.currentNumber * -1;
+        this.currentNumber = this.currentNumber.toString()
     }
 
     chooseOperation(operation) {
@@ -94,7 +103,7 @@ const cancelButton = document.querySelector('[data-cancel]')
 const allClearButton = document.querySelector('[data-all-clear]')
 const previousNumberTextElement = document.querySelector('[data-previous-number]')
 const currentNumberTextElement = document.querySelector('[data-current-number]')
-
+const changeSignButton = document.querySelector('[data-change-sign]')
 
 
 const calculator = new Calculator(previousNumberTextElement, currentNumberTextElement)
@@ -128,5 +137,10 @@ allClearButton.addEventListener('click', button => {
 
 cancelButton.addEventListener('click', button => {
     calculator.delete()
+    calculator.updateDisplay()
+})
+
+changeSignButton.addEventListener('click', button => {
+    calculator.changeSign()
     calculator.updateDisplay()
 })
