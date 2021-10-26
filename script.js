@@ -144,3 +144,78 @@ changeSignButton.addEventListener('click', button => {
     calculator.changeSign()
     calculator.updateDisplay()
 })
+
+const keyboardButtons = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '.', '+', '-', '*', '/', '=', 'Enter', 'c', 'd', 's']
+
+window.addEventListener('keydown', e => {
+    const key = e.key
+    const keyIndex = keyboardButtons.indexOf(key)
+    
+    if (keyIndex > -1) {
+        switch (key){
+            case '1':
+                calculator.writeNumber(1)
+                break
+            case '2':
+                calculator.writeNumber(2)
+                break
+            case '3':
+                calculator.writeNumber(3)
+                break
+            case '4':
+                calculator.writeNumber(4)
+                break
+            case '5':
+                calculator.writeNumber(5)
+                break
+            case '6':
+                calculator.writeNumber(6)
+                break
+            case '7':
+                calculator.writeNumber(7)
+                break
+            case '8':
+                calculator.writeNumber(8)
+                break
+            case '9':
+                calculator.writeNumber(9)
+                break
+            case '0':
+                calculator.writeNumber(0)
+                break
+            case '.':
+                calculator.writeNumber(".")
+                break
+            case '+':
+                calculator.chooseOperation('+')
+                break
+            case '-':
+                calculator.chooseOperation('-')
+                break
+            case '*':
+                calculator.chooseOperation('x')
+                break
+            case '/':
+                calculator.chooseOperation('÷')
+                break
+            case '=':
+                calculator.compute()
+                break
+            case 'Enter':
+                calculator.compute()
+                break
+            case 'c':
+                calculator.clear()
+                break
+            case 'd':
+                calculator.delete()
+                break
+            case 's':
+                calculator.changeSign()
+                break
+            default:
+                return
+        }
+        calculator.updateDisplay()
+    }
+})
