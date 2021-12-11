@@ -24,12 +24,16 @@ class Calculator {
 
     changeSign() {
         if (this.currentNumber === '' || this.currentNumber === '0.') return
-        this.currentNumber = this.currentNumber * -1;
+        this.currentNumber = this.currentNumber * -1
         this.currentNumber = this.currentNumber.toString()
     }
 
     chooseOperation(operation) {
-        if (this.currentNumber === '') return
+        if (this.currentNumber === '' && this.previousNumber === '') return
+        if (this.currentNumber === '') {
+            this.operation = operation;
+            return
+        }
         if (this.previousNumber !== '') {
             this.compute()
         }
